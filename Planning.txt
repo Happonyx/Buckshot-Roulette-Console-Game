@@ -1,0 +1,56 @@
+When the smart bot is given items:
+
+//// Always do first:
+1) If it has a lighter and can use it, it uses it.
+2) If it has a bulletproof vest and can use it, it uses it
+4) If it knows the shell is a blank and it has an inverter, it uses it
+3) if it has a saw and it knows the bullet is live, it uses it
+4) If it has adrenaline
+    ***** FIRSTLY make a list for the valid items that can be stolen from the player
+    * prioritize health (health < 3): check & try to steal lighter/bulletproof vest. 
+
+    * otherwise, it will check to see if it knows what the next shell is
+    * if it doesn't know the shell
+        * first, try to steal & use magnifying glass
+        * otherwise, try to steal ligher/bulletproof vest
+        * otherwise, try to steal & use saw
+    * if it knows the shell is a live:
+        * prioritize damage: it checks & tries to steal saw; if it can't, check & try to steal lighter/bulletproof vest
+    * if it knows the shell is a blank:
+        * check & try to steal inverter; if it can't, check & try to steal lighter/bulletproof vest
+    * if all else fails, the bot just takes a random item
+
+LAST) If it has 2 or less health and has expired medicine & can use it, 20% chance to use it
+
+//// To do when random chance of using item lands
+1) If it has adrenaline
+    ***** FIRSTLY make a list for the valid items that can be stolen from the player
+    * check & try to steal lighter/bulletproof vest. 
+    * otherwise, steal a random item
+
+When the smart bot shoots blindly without knowing the shell
+    * the odds of the bot choosing itself or the player is equal to the ratio of the shells
+    * ex: 3 live, 1 blank --> 75% chance to shoot player, 25% chance to shoot itself
+
+**** Add drunken level that could make you accidentally do the opposite of what you wanted to do
+**** Add "danger level" that determines if bot uses expired medicine
+
+Game itself:
+If its all bots or all players, they will all fight each other and tally their round wins. Whoever reaches 3 wins
+If its one bot one player, it will play out normally
+
+If the player shoots the bot when it's a 1v1 and the game is singleplayer
+    You shot them with a live but their bulletproof vest...
+If the bot shoots the player when it's a 1v1
+    They shot you with a live but your bulletproof vest...
+
+If the player shoots themselves
+    You shot yourself with a live but your bulletproof vest...
+If the player shoots a bot 
+    You shot [bot_name] with a live but their bulletproof vest...
+If the player shoots another player
+    You shot [player_name] with a live but their bulletproof vest...
+If the bot shoots the player when there its singleplayer
+    [bot_name] shot you with a live but your bulletproof vest...
+If a bot shoots a player when there is more than 1 player & more than 1 bot
+[bot_name] shot [player_name] with a live but their bulletproof vest...
